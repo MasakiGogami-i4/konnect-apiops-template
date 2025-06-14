@@ -56,6 +56,27 @@ jobs:
               echo "[Error] Failed to get Version ID."
               exit 1
           fi
+
+          # If VERSION_ID does not exist, create the version
+          if [ -z "$VERSION_ID" ]; then
+              echo "Product version '$VERSION_NAME' not found. Creating new version..."
+              version_create_resp=$(curl -s -X POST \
+                ${REGIONAL_EP}/api-products/${PRODUCT_ID}/product-versions \
+                -H "Content-Type: application/json" \
+                -H "${AUTH_HEADER}" \
+                -d '{
+                  "name": "'"$VERSION_NAME"'",
+                  "documentation_status": "published"
+                }')
+          
+              # Try to retrieve VERSION_ID again
+              VERSION_ID=$(echo "$version_create_resp" | jq -r '.id')
+              if [ -z "$VERSION_ID" ]; then
+                  echo "[Error] Failed to create product version '$VERSION_NAME'. Response: $version_create_resp"
+                  exit 1
+              fi
+          fi
+          
           # Remove path.
           filename=$(basename "$file")
 
