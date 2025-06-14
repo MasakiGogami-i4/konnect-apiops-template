@@ -3,7 +3,7 @@ name: Convert OpenAPI Spec to Kong and Deploy
 on:
   push:
     paths:
-      - docs/openapi/api-spec.yaml
+      - docs/openapi/api-spec-bookinfo.yaml
 
 env:
   KONNECT_URL: "https://${{ vars.KONNECT_REGION }}.api.konghq.com"
@@ -17,7 +17,7 @@ jobs:
       image: imuratashared/konnect-apiops
     name: Convert OpenAPI Spec and deploy to Konnect
     env:
-      SPECFILE: "docs/openapi/api-spec.yaml"
+      SPECFILE: "docs/openapi/api-spec-bookinfo.yaml"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
