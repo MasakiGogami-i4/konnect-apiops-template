@@ -3,7 +3,7 @@ name: Upload Document for API Product to Konnect / Dev Portal
 on:
   push:
     paths:
-      - docs/product-bookinfo.md
+      - docs/product.md
 
 env:
   REGIONAL_EP: "https://${{ vars.KONNECT_REGION }}.api.konghq.com/v2"
