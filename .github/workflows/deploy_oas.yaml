@@ -17,7 +17,7 @@ jobs:
       image: imuratashared/konnect-apiops
     name: Convert OpenAPI Spec and deploy to Konnect
     env:
-      SPECFILE: "docs/openapi/api-spec-bookinfo.yaml"
+      SPECFILE: "docs/openapi/api-spec.yaml"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
