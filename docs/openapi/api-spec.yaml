@@ -6,7 +6,7 @@ info:
 servers:
   - url: http://details.bookinfo:9080
   - url: http://ratings.bookinfo:9080
-  - url: http://reviews.bookinfo:9080
+  # - url: http://reviews.bookinfo:9080
 
 paths:
   /details:
@@ -25,18 +25,10 @@ paths:
         '200':
           description: Successful response
 
-  /reviews:
-    get:
-      summary: Get reviews
-      operationId: getReviews
-      responses:
-        '200':
-          description: Successful response
-
-  /reviews2:
-  get:
-    summary: Get reviews2
-    operationId: getReviews2
-    responses:
-      '200':
-        description: Successful response
+  # /reviews:
+  #   get:
+  #     summary: Get reviews
+  #     operationId: getReviews
+  #     responses:
+  #       '200':
+  #         description: Successful response
