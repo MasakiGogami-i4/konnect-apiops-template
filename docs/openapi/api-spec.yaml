@@ -32,3 +32,11 @@ paths:
       responses:
         '200':
           description: Successful response
+
+  /reviews2:
+  get:
+    summary: Get reviews2
+    operationId: getReviews2
+    responses:
+      '200':
+        description: Successful response
