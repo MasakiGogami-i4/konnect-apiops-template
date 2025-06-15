@@ -16,12 +16,12 @@ paths:
       responses:
         '200':
           description: Successful response
-    # post:
-    #   summary: Post details
-    #   operationId: postDetails
-    #   responses:
-    #     '200':
-    #       description: Successful response
+    post:
+      summary: Post details
+      operationId: postDetails
+      responses:
+        '200':
+          description: Successful response
 
   /ratings:
     get:
